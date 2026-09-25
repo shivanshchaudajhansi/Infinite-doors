@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>INFINITE ROOMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= MENU ================= -->
+    <main id="menu">
+        <div class="menu-bg"></div>
+        <div class="menu-content">
+            <div class="eyebrow">AN UNKNOWN PLACE</div>
+            <h1>INFINITE ROOMS</h1>
+            <p class="tagline">There is no final room. Something always finds you.</p>
+
+            <section class="selector">
+                <h2>ENVIRONMENT</h2>
+                <div class="environment-grid">
+                    <button class="environment selected" data-environment="hotel">
+                        <span class="icon">🏨</span>
+                        <span class="environment-name">ABANDONED HOTEL</span>
+                        <span class="environment-desc">Endless corridors</span>
+                    </button>
+                    <button class="environment" data-environment="school">
+                        <span class="icon">🏫</span>
+                        <span class="environment-name">OLD SCHOOL</span>
+                        <span class="environment-desc">Empty classrooms</span>
+                    </button>
+                    <button class="environment" data-environment="house">
+                        <span class="icon">🏠</span>
+                        <span class="environment-name">EMPTY HOUSE</span>
+                        <span class="environment-desc">Forgotten rooms</span>
+                    </button>
+                    <button class="environment" data-environment="factory">
+                        <span class="icon">🏭</span>
+                        <span class="environment-name">ABANDONED FACTORY</span>
+                        <span class="environment-desc">Silent machinery</span>
+                    </button>
+                    <button class="environment" data-environment="station">
+                        <span class="icon">🚇</span>
+                        <span class="environment-name">UNDERGROUND STATION</span>
+                        <span class="environment-desc">Forgotten tunnels</span>
+                    </button>
+                    <button class="environment" data-environment="laboratory">
+                        <span class="icon">🧪</span>
+                        <span class="environment-name">SECRET LABORATORY</span>
+                        <span class="environment-desc">Restricted sector</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="selector">
+                <h2>DIFFICULTY</h2>
+                <div class="difficulty-grid">
+                    <button class="difficulty selected" data-difficulty="easy">
+                        <b>I</b>
+                        <span><strong>EASY</strong><small>Better visibility, weaker ghost</small></span>
+                    </button>
+                    <button class="difficulty" data-difficulty="normal">
+                        <b>II</b>
+                        <span><strong>NORMAL</strong><small>Balanced experience</small></span>
+                    </button>
+                    <button class="difficulty nightmare" data-difficulty="nightmare">
+                        <b>III</b>
+                        <span><strong>NIGHTMARE</strong><small>Darkness and a faster, deadlier ghost</small></span>
+                    </button>
+                </div>
+            </section>
+
+            <button id="startButton">ENTER THE ROOMS</button>
+            <p class="headphones">HEADPHONES RECOMMENDED</p>
+            <p class="controlshint" id="controlsHint">WASD MOVE · MOUSE LOOK · SHIFT RUN · C CROUCH · SPACE JUMP · F FLASHLIGHT · E INTERACT</p>
+        </div>
+    </main>
+
+    <!-- ================= LOADING ================= -->
+    <section id="loading">
+        <div class="loading-box">
+            <span>GENERATING ROOM</span>
+            <strong id="loadingRoom">001</strong>
+            <div class="loading-line"><div id="loadingProgress"></div></div>
+            <p id="loadingStatus">Constructing environment...</p>
+        </div>
+    </section>
+
+    <!-- ================= GAME ================= -->
+    <main id="game">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="fog"></div>
+        <div id="vignette"></div>
+        <div id="grain"></div>
+        <div id="flash"></div>
+
+        <!-- HUD -->
+        <div id="hud">
+            <div class="room-hud">
+                <small>ROOM</small>
+                <strong id="roomNumber">001</strong>
+            </div>
+
+            <div class="environment-hud" id="environmentName">ABANDONED HOTEL</div>
+
+            <div class="health-container">
+                <div class="health-label">HEALTH</div>
+                <div class="health-bar"><div id="healthFill"></div></div>
+                <span id="healthText">100</span>
+            </div>
+
+            <div class="objective">
+                <span>OBJECTIVE</span>
+                <p id="objectiveText">Search the room.</p>
+            </div>
+
+            <div class="crosshair"><span></span></div>
+
+            <div class="flashlight-status" id="flStatus">F — FLASHLIGHT ON</div>
+
+            <div id="interaction"></div>
+        </div>
+
+        <!-- MOBILE TOUCH CONTROLS -->
+        <div id="mobileControls">
+            <div id="lookZone"></div>
+            <div class="dpad">
+                <button id="btnUp" class="dbtn du">▲</button>
+                <button id="btnLeft" class="dbtn dl">◀</button>
+                <button id="btnRight" class="dbtn dr">▶</button>
+                <button id="btnDown" class="dbtn dd">▼</button>
+            </div>
+            <div class="rbtns">
+                <button id="btnInteract" class="rbtn">E</button>
+                <button id="btnJump" class="rbtn">JUMP</button>
+                <button id="btnFlash" class="rbtn">F</button>
+            </div>
+        </div>
+
+        <!-- PUZZLE TERMINAL MODAL -->
+        <div id="puzzleModal">
+            <div class="puzzle-box">
+                <div class="puzzle-header">
+                    <span id="puzzleTitle">TERMINAL LOCKED</span>
+                </div>
+                <div id="puzzleBody"></div>
+                <button id="puzzleClose">ABANDON [ESC]</button>
+            </div>
+        </div>
+
+        <!-- HEAL PROMPT -->
+        <div id="healPrompt">
+            <div class="heal-box">
+                <span>MEDICAL KIT FOUND</span>
+                <p>Use it to restore 40 health?</p>
+                <div class="heal-buttons">
+                    <button id="healYes">USE (+40 HP)</button>
+                    <button id="healNo">LEAVE IT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAUSE -->
+        <div id="pause">
+            <h2>PAUSED</h2>
+            <button id="resumeButton">RESUME</button>
+            <button id="menuButton">MAIN MENU</button>
+        </div>
+
+        <!-- GAME OVER -->
+        <div id="gameOver">
+            <div class="game-over-box">
+                <span>THE ROOM REMAINS</span>
+                <h2>YOU DID NOT ESCAPE</h2>
+                <p id="finalRoom">ROOM 001</p>
+                <button id="retryButton">TRY AGAIN</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
