@@ -2,928 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SHIVANSH CHAUDA | Portfolio</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>INFINITE ROOMS</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- ================= LOADER ================= -->
-    <div class="loader" id="loader">
+    <!-- ================= MENU ================= -->
+    <main id="menu">
+        <div class="menu-bg"></div>
+        <div class="menu-content">
+            <div class="eyebrow">AN UNKNOWN PLACE</div>
+            <h1>INFINITE ROOMS</h1>
+            <p class="tagline">There is no final room. Something always finds you.</p>
 
-        <div class="loader-content">
+            <section class="selector">
+                <h2>ENVIRONMENT</h2>
+                <div class="environment-grid">
+                    <button class="environment selected" data-environment="hotel">
+                        <span class="icon">🏨</span>
+                        <span class="environment-name">ABANDONED HOTEL</span>
+                        <span class="environment-desc">Endless corridors</span>
+                    </button>
+                    <button class="environment" data-environment="school">
+                        <span class="icon">🏫</span>
+                        <span class="environment-name">OLD SCHOOL</span>
+                        <span class="environment-desc">Empty classrooms</span>
+                    </button>
+                    <button class="environment" data-environment="house">
+                        <span class="icon">🏠</span>
+                        <span class="environment-name">EMPTY HOUSE</span>
+                        <span class="environment-desc">Forgotten rooms</span>
+                    </button>
+                    <button class="environment" data-environment="factory">
+                        <span class="icon">🏭</span>
+                        <span class="environment-name">ABANDONED FACTORY</span>
+                        <span class="environment-desc">Silent machinery</span>
+                    </button>
+                    <button class="environment" data-environment="station">
+                        <span class="icon">🚇</span>
+                        <span class="environment-name">UNDERGROUND STATION</span>
+                        <span class="environment-desc">Forgotten tunnels</span>
+                    </button>
+                    <button class="environment" data-environment="laboratory">
+                        <span class="icon">🧪</span>
+                        <span class="environment-name">SECRET LABORATORY</span>
+                        <span class="environment-desc">Restricted sector</span>
+                    </button>
+                </div>
+            </section>
 
-            <div class="loader-logo">
-                SHIVANSH'S PORTFOLIO
-            </div>
+            <section class="selector">
+                <h2>DIFFICULTY</h2>
+                <div class="difficulty-grid">
+                    <button class="difficulty selected" data-difficulty="easy">
+                        <b>I</b>
+                        <span><strong>EASY</strong><small>Better visibility, weaker ghost</small></span>
+                    </button>
+                    <button class="difficulty" data-difficulty="normal">
+                        <b>II</b>
+                        <span><strong>NORMAL</strong><small>Balanced experience</small></span>
+                    </button>
+                    <button class="difficulty nightmare" data-difficulty="nightmare">
+                        <b>III</b>
+                        <span><strong>NIGHTMARE</strong><small>Darkness and a faster, deadlier ghost</small></span>
+                    </button>
+                </div>
+            </section>
 
-            <div class="loader-line">
-                <div class="loader-progress"></div>
-            </div>
-
-            <p>LOADING MY PORTFOLIO...</p>
-
+            <button id="startButton">ENTER THE ROOMS</button>
+            <p class="headphones">HEADPHONES RECOMMENDED</p>
+            <p class="controlshint" id="controlsHint">WASD MOVE · MOUSE LOOK · SHIFT RUN · C CROUCH · SPACE JUMP · F FLASHLIGHT · E INTERACT</p>
         </div>
-
-    </div>
-
-
-    <!-- ================= BACKGROUND ================= -->
-
-    <div class="background">
-
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-
-        <canvas id="particles"></canvas>
-
-    </div>
-
-
-    <!-- ================= CURSOR ================= -->
-
-    <div class="cursor"></div>
-    <div class="cursor-dot"></div>
-
-
-    <!-- ================= NAVBAR ================= -->
-
-    <header class="navbar">
-
-        <div class="nav-container">
-
-            <a href="#home" class="logo">
-                SHIVANSH<span>.</span>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle">
-                ☰
-            </button>
-
-            <nav id="navMenu">
-
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#journey">Journey</a>
-                <a href="#contact">Contact</a>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-
-    <!-- ================= HERO ================= -->
-
-    <main>
-
-        <section class="hero section" id="home">
-
-            <div class="hero-content reveal">
-
-                <p class="small-heading">
-                    WELCOME TO MY PORTFOLIO
-                </p>
-
-                <h1>
-                    SHIVANSH
-                    <span>CHAUDA</span>
-                </h1>
-
-                <div class="typing-container">
-
-                    <span>I AM A </span>
-
-                    <span id="typing"></span>
-
-                    <span class="typing-cursor">|</span>
-
-                </div>
-
-                <p class="hero-description">
-                    Welcome to my portfolio — I’m SHIVANSH CHAUDA.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#projects" class="btn primary-btn">
-                        EXPLORE PROJECTS
-                    </a>
-
-                    <a href="#contact" class="btn secondary-btn">
-                        CONTACT ME
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROFILE -->
-
-            <div class="profile-area reveal">
-
-                <div class="profile-card">
-
-                    <div class="profile-glow"></div>
-
-                    <div class="profile-image-wrapper">
-
-                        <img
-                            src="./profile.jpg.png"
-                            alt="SHIVANSH CHAUDA"
-                            class="profile-image"
-                            id="profileImage"
-                        >
-
-                        <div class="image-fallback" id="imageFallback">
-                            SHIVANSH
-                        </div>
-
-                    </div>
-
-                    <div class="profile-info">
-
-                        <h2>SHIVANSH CHAUDA</h2>
-
-                        <p>CREATOR • CODER • BUILDER</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= STATS ================= -->
-
-        <section class="stats-section">
-
-            <div class="stats-container">
-
-                <div class="stat reveal">
-
-                    <strong data-target="10">0</strong>
-
-                    <span>+</span>
-
-                    <p>PROJECTS</p>
-
-                </div>
-
-
-                <div class="stat reveal">
-
-                    <strong data-target="6">0</strong>
-
-                    <span>+</span>
-
-                    <p>TECHNOLOGIES</p>
-
-                </div>
-
-
-                <div class="stat reveal">
-
-                    <strong data-target="100">0</strong>
-
-                    <span>%</span>
-
-                    <p>CREATIVITY</p>
-
-                </div>
-
-
-                <div class="stat reveal">
-
-                    <strong data-target="999">0</strong>
-
-                    <span>+</span>
-
-                    <p>IDEAS</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-
-        <section class="section about" id="about">
-
-            <div class="section-title reveal">
-
-                <p>WHO I AM</p>
-
-                <h2>ABOUT <span>ME</span></h2>
-
-            </div>
-
-
-            <div class="about-grid">
-
-                <div class="about-text reveal">
-
-                    <h3>
-                        I BUILD THINGS
-                        <span>THAT MATTER.</span>
-                    </h3>
-
-                    <p>
-                        I am SHIVANSH CHAUDA, a young developer who enjoys
-                        creating websites, applications and technology
-                        projects.
-                    </p>
-
-                    <p>
-                        I like experimenting with HTML, CSS, JavaScript,
-                        Python, Node.js and databases while turning ideas
-                        into working projects.
-                    </p>
-
-                    <p>
-                        This portfolio showcases the projects and skills
-                        I have worked on.
-                    </p>
-
-                </div>
-
-
-                <div class="about-card reveal">
-
-                    <div class="about-card-inner">
-
-                        <span class="card-number">01</span>
-
-                        <h3>CREATE</h3>
-
-                        <p>
-                            Turning ideas into digital experiences.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= SKILLS ================= -->
-
-        <section class="section skills" id="skills">
-
-            <div class="section-title reveal">
-
-                <p>WHAT I USE</p>
-
-                <h2>MY <span>SKILLS</span></h2>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-
-                <div class="skill-card reveal">
-
-                    <div class="skill-icon">HTML</div>
-
-                    <h3>HTML</h3>
-
-                    <div class="skill-bar">
-                        <span data-width="95%"></span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card reveal">
-
-                    <div class="skill-icon">CSS</div>
-
-                    <h3>CSS</h3>
-
-                    <div class="skill-bar">
-                        <span data-width="90%"></span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card reveal">
-
-                    <div class="skill-icon">JS</div>
-
-                    <h3>JAVASCRIPT</h3>
-
-                    <div class="skill-bar">
-                        <span data-width="85%"></span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card reveal">
-
-                    <div class="skill-icon">PY</div>
-
-                    <h3>PYTHON</h3>
-
-                    <div class="skill-bar">
-                        <span data-width="80%"></span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card reveal">
-
-                    <div class="skill-icon">DB</div>
-
-                    <h3>MONGODB</h3>
-
-                    <div class="skill-bar">
-                        <span data-width="75%"></span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card reveal">
-
-                    <div class="skill-icon">NODE</div>
-
-                    <h3>NODE.JS</h3>
-
-                    <div class="skill-bar">
-                        <span data-width="75%"></span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= MARQUEE ================= -->
-
-        <div class="marquee">
-
-            <div class="marquee-track">
-
-                <span>SHIVANSH CHAUDA</span>
-                <span>•</span>
-                <span>WEB DEVELOPER</span>
-                <span>•</span>
-                <span>CREATOR</span>
-                <span>•</span>
-                <span>CODER</span>
-                <span>•</span>
-
-                <span>SHIVANSH CHAUDA</span>
-                <span>•</span>
-                <span>WEB DEVELOPER</span>
-                <span>•</span>
-                <span>CREATOR</span>
-                <span>•</span>
-                <span>CODER</span>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= PROJECTS ================= -->
-
-        <section class="section projects" id="projects">
-
-            <div class="section-title reveal">
-
-                <p>MY WORK</p>
-
-                <h2>FEATURED <span>PROJECTS</span></h2>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-
-                <!-- PROJECT 01 -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        01
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            FULL STACK
-                        </p>
-
-                        <h3>
-                            RAMESHWARAM
-                            <span>CAFE</span>
-                        </h3>
-
-                        <p>
-                            A restaurant website project with menu,
-                            cart, orders and backend functionality.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JS</span>
-                            <span>NODE</span>
-                            <span>MONGODB</span>
-
-                        </div>
-
-                        <a
-                            href="https://rameshwaramcafeandresturant.lovable.app/"
-                            target="_blank"
-                            class="project-link"
-                        >
-                            VIEW PROJECT →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 02 -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        02
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            WEB APPLICATION
-                        </p>
-
-                        <h3>
-                            NOVA
-                            <span>COMMUNICATION</span>
-                        </h3>
-
-                        <p>
-                            A communication-focused web project designed
-                            with a modern interactive interface.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JS</span>
-
-                        </div>
-
-                        <a
-                            href="https://shivanshchaudajhansi.github.io/NOVA/"
-                            target="_blank"
-                            class="project-link"
-                        >
-                            VIEW PROJECT →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 03 -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        03
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            SERVER
-                        </p>
-
-                        <h3>
-                            24×7
-                            <span>SERVER</span>
-                        </h3>
-
-                        <p>
-                            A server and control-panel project designed
-                            to keep services running and manageable.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>NODE.JS</span>
-                            <span>EXPRESS</span>
-                            <span>JS</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 04 -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        04
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            COMPUTER VISION
-                        </p>
-
-                        <h3>
-                            LIVE CAMERA
-                            <span>TRACKING</span>
-                        </h3>
-
-                        <p>
-                            A computer vision project exploring live camera
-                            tracking and real-time processing.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>PYTHON</span>
-                            <span>OPENCV</span>
-                            <span>MEDIAPIPE</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 05 -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        05
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            GAME
-                        </p>
-
-                        <h3>
-                            RACING
-                            <span>GAME</span>
-                        </h3>
-
-                        <p>
-                            An interactive racing game concept focused on
-                            gameplay, controls and visual experience.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JAVASCRIPT</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <!-- PROJECT 06 — INFINITE DOORS -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        06
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            HORROR WEB GAME
-                        </p>
-
-                        <h3>
-                            INFINITE
-                            <span>DOORS</span>
-                        </h3>
-
-                        <p>
-                            An atmospheric exploration game featuring
-                            endless rooms, different environments,
-                            difficulty levels and interactive gameplay.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JAVASCRIPT</span>
-                            <span>GAME</span>
-
-                        </div>
-
-                        <a
-                            href="https://shivanshchaudajhansi.github.io/Infinite-doors/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link"
-                        >
-                            PLAY PROJECT →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 07 — DEAD CITY -->
-
-                <article class="project-card reveal">
-
-                    <div class="project-number">
-                        07
-                    </div>
-
-                    <div class="project-content">
-
-                        <p class="project-category">
-                            HORROR WEB GAME
-                        </p>
-
-                        <h3>
-                            DEAD CITY
-                            <span>ULTIMATE ENHANCED</span>
-                        </h3>
-
-                        <p>
-                            An immersive horror game experience with
-                            an atmospheric environment, exploration
-                            and interactive gameplay.
-                        </p>
-
-                        <div class="project-tech">
-
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JAVASCRIPT</span>
-                            <span>GAME</span>
-
-                        </div>
-
-                        <a
-                            href="https://shivanshchaudajhansi.github.io/Dead-City/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link"
-                        >
-                            PLAY PROJECT →
-                        </a>
-
-                    </div>
-
-                </article>
-            </div>
-
-        </section>
-
-
-        <!-- ================= JOURNEY ================= -->
-
-        <section class="section journey" id="journey">
-
-            <div class="section-title reveal">
-
-                <p>MY PROGRESS</p>
-
-                <h2>MY <span>JOURNEY</span></h2>
-
-            </div>
-
-
-            <div class="timeline">
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span>01</span>
-
-                        <h3>START</h3>
-
-                        <p>
-                            Started exploring technology and programming.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span>02</span>
-
-                        <h3>WEB DEVELOPMENT</h3>
-
-                        <p>
-                            Started creating websites using HTML, CSS
-                            and JavaScript.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span>03</span>
-
-                        <h3>BACKEND</h3>
-
-                        <p>
-                            Started working with Node.js, Express and
-                            MongoDB.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card">
-
-                        <span>04</span>
-
-                        <h3>MORE PROJECTS</h3>
-
-                        <p>
-                            Continued building different projects and
-                            experimenting with new technologies.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACT ================= -->
-
-        <section class="section contact" id="contact">
-
-            <div class="contact-box reveal">
-
-                <p class="contact-small">
-                    HAVE AN IDEA?
-                </p>
-
-                <h2>
-                    LET'S BUILD
-                    <span>SOMETHING.</span>
-                </h2>
-
-                <p>
-                    You can find me through the links below.
-                </p>
-
-
-                <div class="contact-buttons">
-
-                    <a
-                        href="mailto:shivanshchaudha@gmail.com"
-                        class="btn primary-btn"
-                    >
-                        EMAIL ME
-                    </a>
-
-                    <a
-                        href="https://www.instagram.com/ur_friend_shivansh/"
-                        target="_blank"
-                        class="btn secondary-btn"
-                    >
-                        START CONVERSATION
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
     </main>
 
+    <!-- ================= LOADING ================= -->
+    <section id="loading">
+        <div class="loading-box">
+            <span>GENERATING ROOM</span>
+            <strong id="loadingRoom">001</strong>
+            <div class="loading-line"><div id="loadingProgress"></div></div>
+            <p id="loadingStatus">Constructing environment...</p>
+        </div>
+    </section>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ================= GAME ================= -->
+    <main id="game">
+        <canvas id="gameCanvas"></canvas>
 
-    <footer>
+        <div id="fog"></div>
+        <div id="vignette"></div>
+        <div id="grain"></div>
+        <div id="flash"></div>
 
-        <div class="footer-container">
-
-            <div>
-
-                <h3>SHIVANSH<span>.</span></h3>
-
-                <p>
-                    Personal Portfolio
-                </p>
-
+        <!-- HUD -->
+        <div id="hud">
+            <div class="room-hud">
+                <small>ROOM</small>
+                <strong id="roomNumber">001</strong>
             </div>
 
+            <div class="environment-hud" id="environmentName">ABANDONED HOTEL</div>
 
-            <div class="socials">
-
-                <a
-                    href="https://github.com/shivanshchaudajhansi"
-                    target="_blank"
-                >
-                    GITHUB
-                </a>
-
-                <a
-                    href="https://www.instagram.com/ur_friend_shivansh/"
-                    target="_blank"
-                >
-                    INSTAGRAM
-                </a>
-
+            <div class="health-container">
+                <div class="health-label">HEALTH</div>
+                <div class="health-bar"><div id="healthFill"></div></div>
+                <span id="healthText">100</span>
             </div>
 
+            <div class="objective">
+                <span>OBJECTIVE</span>
+                <p id="objectiveText">Search the room.</p>
+            </div>
+
+            <div class="crosshair"><span></span></div>
+
+            <div class="flashlight-status" id="flStatus">F — FLASHLIGHT ON</div>
+
+            <div id="interaction"></div>
         </div>
 
-
-        <div class="footer-bottom">
-
-            © 2026 SHIVANSH CHAUDA • MY PORTFOLIO
-
+        <!-- MOBILE TOUCH CONTROLS -->
+        <div id="mobileControls">
+            <div id="lookZone"></div>
+            <div class="dpad">
+                <button id="btnUp" class="dbtn du">▲</button>
+                <button id="btnLeft" class="dbtn dl">◀</button>
+                <button id="btnRight" class="dbtn dr">▶</button>
+                <button id="btnDown" class="dbtn dd">▼</button>
+            </div>
+            <div class="rbtns">
+                <button id="btnInteract" class="rbtn">E</button>
+                <button id="btnJump" class="rbtn">JUMP</button>
+                <button id="btnFlash" class="rbtn">F</button>
+            </div>
         </div>
 
-    </footer>
+        <!-- PUZZLE TERMINAL MODAL -->
+        <div id="puzzleModal">
+            <div class="puzzle-box">
+                <div class="puzzle-header">
+                    <span id="puzzleTitle">TERMINAL LOCKED</span>
+                </div>
+                <div id="puzzleBody"></div>
+                <button id="puzzleClose">ABANDON [ESC]</button>
+            </div>
+        </div>
 
+        <!-- HEAL PROMPT -->
+        <div id="healPrompt">
+            <div class="heal-box">
+                <span>MEDICAL KIT FOUND</span>
+                <p>Use it to restore 40 health?</p>
+                <div class="heal-buttons">
+                    <button id="healYes">USE (+40 HP)</button>
+                    <button id="healNo">LEAVE IT</button>
+                </div>
+            </div>
+        </div>
 
-    <!-- ================= TOP BUTTON ================= -->
+        <!-- PAUSE -->
+        <div id="pause">
+            <h2>PAUSED</h2>
+            <button id="resumeButton">RESUME</button>
+            <button id="menuButton">MAIN MENU</button>
+        </div>
 
-    <button id="topButton" class="top-button">
-        ↑
-    </button>
+        <!-- GAME OVER -->
+        <div id="gameOver">
+            <div class="game-over-box">
+                <span>THE ROOM REMAINS</span>
+                <h2>YOU DID NOT ESCAPE</h2>
+                <p id="finalRoom">ROOM 001</p>
+                <button id="retryButton">TRY AGAIN</button>
+            </div>
+        </div>
+    </main>
 
-
-    <script src="script.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
